@@ -1,0 +1,18 @@
+{
+  "name": "@quantum/core",
+  "version": "1.0.0",
+  "description": "Strict state-vector simulator for Quantum Superdense Coding",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@quantum/contracts": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  }
+}

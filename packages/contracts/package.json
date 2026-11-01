@@ -1,0 +1,13 @@
+{
+  "name": "@quantum/contracts",
+  "version": "1.0.0",
+  "description": "Shared contracts and types for Quantum Superdense Coding Simulator",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

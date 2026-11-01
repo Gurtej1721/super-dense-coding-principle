@@ -1,0 +1,28 @@
+services:
+  simulator:
+    build:
+      context: ./services/simulator
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - SIMULATOR_HOST=0.0.0.0
+      - SIMULATOR_PORT=8000
+      - ALLOWED_ORIGINS=http://localhost:3000
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      simulator:
+        condition: service_healthy
